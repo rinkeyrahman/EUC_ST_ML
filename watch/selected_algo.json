@@ -1,0 +1,1 @@
+{"Domain": ["health", "cardiac"], "Sensor_name": ["pulse rate"], "Algorithm_name": "LogisticRegression", "Output_attribute": "disease_status", "Training_attributes": ["serum_cholestoral", "resting_blood_pressure", "age", "pulse_rate", "maximum_heart_rate"], "Number_of_training_attributes": 5}

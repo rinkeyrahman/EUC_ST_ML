@@ -1,0 +1,82 @@
+<!-- extend base layout -->
+<style>
+    	#fr1{
+    		width:600px;
+    		margin-top: 80px;
+    		font-family: Arial;
+    		color: #0f80f0;
+    		clear: both;
+    	}
+    	p {
+        text-align:left;
+      }
+    	h1{
+    		color: #0f80f0;
+    		font-size: 40px;
+    		margin-top:60px;
+    		font-family: Arial;
+    	}
+    	h4{
+    		color: #0f80f0;
+    		
+    		font-family: Arial;
+    	}
+    	a{
+    		  text-decoration: none;
+    	}
+    	#btn{
+    		width:100px;
+    		height: 50px;
+    		background-color: #0f80f0;
+    		font-family: Arial;
+    		color: #ffffff;
+    		
+    	}
+    
+    	p input{
+    		float: right;
+    		width:250px;
+    		margin-right:100px;
+    	}
+    	
+    </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+	$(function(){
+	$('#btn').click(function(){
+		
+		$.ajax({
+			url: '/success',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+				console.log(response);
+
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+		alert( "Form Submitted Successfully" );  
+	});
+});
+
+
+</script>
+    
+    <div align="center"><h1>Form</h1></div>
+    <div id="fr" align="center">
+<form action="{{ url_for('success')}}" method="post" name="login" id="fr1">
+             {% set count = 1 %}
+            {% for fr in q %}
+                  
+               <p>{{fr}}<input type='text' id={{count}} name="{{fr}}"></p>
+                {% set count = count + 1 %}
+            {% endfor %}
+             
+        <br><br> <input type="button" id="btn" value="Submit">
+              
+    </form>
+
+</div> 
+

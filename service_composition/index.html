@@ -1,0 +1,281 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>User Intention Form</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <script type="text/javascript" src="assets/js/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#subdom").hide();
+            $('#loading').hide();
+            $("#tabsWithStyle").hide();
+            $('#domain').on('change', function () {
+                if (this.value == 'health') {
+                    $("#subdom").show();
+                }
+                else {
+                    $('#subdom').hide();
+                    $("#tabsWithStyle").hide();
+                }
+            });
+            $('#subdomain').on('change', function () {
+                if (this.value == 'cardiac') {
+                    $("#tabsWithStyle").show();
+                }
+                else {
+                    $("#tabsWithStyle").hide();
+                }
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+
+<div class="loader" name="loading" id="loading">
+    <div class="inner one"></div>
+    <div class="inner two"></div>
+    <div class="inner three"></div>
+</div>
+<div class="container" id="mainbody">
+    <form action="getInfoAPI.php" method="post" id="postform" name="postform">
+        <h1 class="well well-lg" style="text-align: center;">User Intention Form</h1><br>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Services</h2>
+            </div>
+            <div class="panel-body" style="font-size: large">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="domain">Available Serices</label><br><select id="domain" name="domain">
+                        <option value="0">---Select Service-----</option>
+                        <option value="health">Health & Disease</option>
+                        <option value="2">Domestic & Home Automation</option>
+                        <option value="3">Security & Emergencies</option>
+                        <option value="3">Smart Agriculture</option>
+                    </select>
+                    </div>
+                    <div class="col-md-6" id="subdom">
+                        <label for="subdomain">Available Sensor To Detect Disease</label><br><select id="subdomain" name="subdomain">
+                        <option value="0">---Select Sensor-----</option>
+                        <option value="cardiac">Cardiac</option>
+                        <option value="2">Fever</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="tabsWithStyle" >
+            <ul>
+                <li><a href="#call">
+                    <div class="icon call-icon"></div>
+                </a></li>
+                <li><a href="#sms">
+                    <div class="icon sms-icon"></div>
+                </a></li>
+                <li><a href="#email">
+                    <div class="icon email-icon"></div>
+                </a></li>
+
+            </ul>
+            <div class="container-fluid">
+                <div id="call">
+                    <input align="center" type="checkbox" name="call_service" id="call_service" value="call" checked/><span>Call</span><br>
+                    <div class="col-md-4">
+                        <h4 style="color: blue">Information</h4>
+                        <div>
+                            <label for="phonecellno">Phone Number: </label><input type="text" id="phonecellno" name="phonecellno" placeholder="Contact No" value="01554070646">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 style="color: blue">Condition for Alert</h4>
+                        <div>
+                            <select id="call_state" name="call_state">
+                                <option value="severe" selected>Severe</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="mild">Mild</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 style="color: blue">Service Information</h4><br>
+                        <div>
+                            <p>Call Service will help you to do great things.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="sms">
+                    <input type="checkbox" name="sms_service" id="sms_service" value="msg" checked/>Message<br>
+                    <div class="col-md-4">
+                        <h4 style="color: blue">Information</h4>
+                        <div class="form-horizontal">
+                            <label for="cellno">Phone Number: </label><input type="text" id="cellno" name="cellno" placeholder="Contact No..." value="01554070646"/></br>
+                            <label for="msgbody">Message Body: </label><textarea type="text" id="msgbody" name="msgbody" placeholder="Message...">Sms Body</textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 style="color: blue">Condition for Alert</h4>
+                        <div>
+                            <select id="sms_state" name="sms_state">
+                                <option value="severe">Severe</option>
+                                <option value="moderate" selected>Moderate</option>
+                                <option value="mild">Mild</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 style="color: blue">Service Information</h4><br>
+                        <div>
+                            <p>SMS Service will help you to do great things.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="email">
+                    <input type="checkbox" name="email_service" id="email_service" value="email" checked/>Email<br>
+                    <div class="col-md-4">
+                        <h4 style="color: blue">Information</h4>
+                        <div>
+                            <label for="emailid">Email: </label><input type="email" id="emailid" name="emailid" placeholder="Email ID..."
+                                   value="example@example.com"/></br>
+                            <label for="emailbody">Email Body: </label><textarea id="emailbody" type="text" name="emailbody" placeholder="Message...">Email Body</textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 style="color: blue">Condition for Alert</h4>
+                        <div>
+                            <select id="email_state" name="email_state">
+                                <option value="severe">Severe</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="mild" selected>Mild</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 style="color: blue">Service Information</h4><br>
+                        <div>
+                            <p>Email Service will help you to do great things.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <input style="alignment: center;" align="center" class="btn btn-success btn-lg" type="submit" value="Submit"/>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+        <script>
+
+            $('#postform').submit(function (event) {
+
+                $('#mainbody').hide();
+                $('#loading').show();
+                var result = saveOnFirebase();
+
+                event.preventDefault();
+                window.setTimeout(function(){
+                    document.getElementById('postform').submit();
+                }, 3000);
+
+                console.log(result);
+            });
+
+            function saveOnFirebase()
+            {
+                var config = {
+                    apiKey: "AIzaSyBgiqSUkb9L50CZRy0JL6r6Mx17WAm7-fI",
+                    authDomain: "user-notifier.firebaseapp.com",
+                    databaseURL: "https://user-notifier.firebaseio.com",
+                    storageBucket: "user-notifier.appspot.com"
+                };
+                firebase.initializeApp(config);
+
+                //
+                var domain = document.getElementById('domain');
+                var subdomain = document.getElementById('subdomain');
+                var callService = document.getElementById('call_service');
+                var smsService = document.getElementById('sms_service');
+                var emailService = document.getElementById('email_service');
+                var phoneCellNo = document.getElementById('phonecellno');
+                var phoneCondition = document.getElementById('call_state');
+                var smsCellNo = document.getElementById('cellno');
+                var smsBody = document.getElementById('msgbody');
+                var smsCondition = document.getElementById('sms_state');
+                var email = document.getElementById('emailid');
+                var emailBody = document.getElementById('emailbody');
+                var emailCondition = document.getElementById('email_state');
+
+                var userIntention = {};
+                userIntention.domain = domain.options[domain.selectedIndex].value;
+                userIntention.subdomain = subdomain.options[subdomain.selectedIndex].value;
+                userIntention.name_of_sensor = "pulse_rate";
+                userIntention.number_of_sensor = 1;
+                userIntention.cardiac_status='none';
+                userIntention.services = {};
+                if(callService.checked)
+                {
+                    userIntention.services.call = {};
+                    userIntention.services.call.contact = phoneCellNo.value;
+                    userIntention.services.call.message = 'call';
+                    userIntention.services.call.service_name = 'call';
+                    userIntention.services.call.service_condition = phoneCondition.options[phoneCondition.selectedIndex].value;
+                }
+                if(smsService.checked)
+                {
+                    userIntention.services.sms = {};
+                    userIntention.services.sms.contact = smsCellNo.value;
+                    userIntention.services.sms.message = smsBody.value;
+                    userIntention.services.sms.service_name = 'sms';
+                    userIntention.services.sms.service_condition = smsCondition.options[smsCondition.selectedIndex].value;
+                }
+                if(emailService.checked)
+                {
+                    userIntention.services.email = {};
+                    userIntention.services.email.contact = email.value;
+                    userIntention.services.email.message = emailBody.value;
+                    userIntention.services.email.service_name = 'email';
+                    userIntention.services.email.service_condition = emailCondition.options[emailCondition.selectedIndex].value;
+                }
+                var onComplete = function(error) {
+                    if (error) {
+                        console.log('Synchronization failed');
+                    } else {
+                        console.log('Synchronization succeeded');
+                    }
+                };
+
+                var result = firebase.database().ref('user/' + 'user2').set(userIntention, onComplete);
+
+                return result;
+            }
+
+
+        </script>
+
+    </form>
+
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#tabsWithStyle').tabs();
+    });
+</script>
+
+<!--
+<div class="container" name="loading" id="looding">
+    <span id="loading"></span>
+    <div id="load">loading</div>
+</div>
+-->
+
+</body>
+</html>

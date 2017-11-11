@@ -1,0 +1,35 @@
+{"Attribute_info": [{"Name":"age",
+                     "Type":"quantitative"},
+{"Name":"sex",
+"Type":"categorical"},
+{"Name":"chest_pain_type",
+"Type":"categorical"},
+{"Name":"resting_blood_pressure",
+"Type":"quantitative"},
+{"Name":"serum_cholestoral",
+"Type":"quantitative"},
+{"Name":"pulse_rate",
+"Type":"quantitative"},
+{"Name":"fasting_blood_sugar",
+"Type":"categorical"},
+{"Name":"maximum_heart_rate",
+"Type":"quantitative"},
+{"Name":"exercise_induced_angina",
+"Type":"categorical"},
+{"Name":"oldpeak",
+"Type":"quantitative"},
+{"Name":"disease_status",
+"Type":"categorical"}]
+}
+
+
+
+
+
+
+
+
+
+    
+                        
+       

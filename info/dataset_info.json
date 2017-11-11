@@ -1,0 +1,30 @@
+{Dataset:[{ "Dataset_name": "cardiac",
+
+"Type": "health",
+
+"Dataset_characteristic": "multivariate"
+
+"Attribute_characteristics":["quantitative","categorical"],
+
+"Number_of_instances":540
+
+"Number_of_attributes":15
+
+"Missing_value":0
+},
+{ "Dataset_name": "diabetes",
+
+"Type": "health",
+
+"Dataset_characteristic": "multivariate"
+
+"Attribute_characteristics":["quantitative","categorical"],
+
+"Number_of_instances":403
+
+"Number_of_attributes":19
+
+"Missing_value":0
+}
+]
+}

@@ -1,0 +1,74 @@
+<html>
+  <head>
+   
+   
+    <title>Home</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <title>Home</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script> 
+ <script type="text/javascript">
+    
+    var y;
+      function func(id)
+      {
+      	y=id;
+      	alert(y);
+     }
+     $(document).ready(function(){
+    $("input").click(function(){
+    	d=y;
+    	  
+         $.ajax({
+            type: "GET",
+            url: $SCRIPT_ROOT + "/base",
+            contentType: "application/json; charset=utf-8",
+            data:{ click: $('input[name='+d+']').val()},
+            success: function(data) {
+                 console.log(data);
+              
+            }
+        });
+          //$("form#fr1").toggle();  
+       
+    });
+  	
+       
+    });
+    
+    
+
+</script>
+<style>
+    	input{
+    		width:200px;
+    		height: 50px;
+    		background-color: #0f80f0;
+    		margin-top: 130px;
+    		font-family: Arial;
+    		color: #ffffff;
+    	}
+    	h1{
+    		color: #0f80f0;
+    		font-size: 40px;
+    		margin-top:60px;
+    		font-family: Arial;
+    	}
+    </style>
+  </head>
+  <body>
+    <div align="center"><h1>Home</h1></div>
+ <div id="btn" align="center">
+  {% for i in providers %}
+ 
+<a href="{{ url_for('form')}}"><input type="button" id="{{i[0]}}" name="{{i[0]}}" value="{{i[0]}}" onclick="func(this.id)"></a>
+ 
+{% endfor %}
+</div> 
+ 
+  </body>
+</html>
