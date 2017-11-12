@@ -1,6 +1,6 @@
 # EUC__ST__ML
 
-### End User Requirement Recognition and Service Triggering using Machine Learning
+### End user requirement recognition and service triggering using machine learning
 
 ## Copyright
 ### PINLab Team
