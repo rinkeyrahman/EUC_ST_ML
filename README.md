@@ -2,5 +2,5 @@
 
 ### End User Requirement Recognition and Service Triggering using Machine Learning
 
-# License
+# Copyright
 ### PINLab Team
